@@ -1,0 +1,38 @@
+%h1
+  Editing locale
+- form_for(@locale) do |f|
+= f.error_messages
+%p
+  = f.label :zip
+  %br/
+  = f.text_field :zip
+%p
+  = f.label :latitude
+  %br/
+  = f.text_field :latitude
+%p
+  = f.label :longitude
+  %br/
+  = f.text_field :longitude
+%p
+  = f.label :city
+  %br/
+  = f.text_field :city
+%p
+  = f.label :state
+  %br/
+  = f.text_field :state
+%p
+  = f.label :county
+  %br/
+  = f.text_field :county
+%p
+  = f.label :postal_type
+  %br/
+  = f.text_field :postal_type
+%p
+  = f.submit "Update"
+- end
+= link_to 'Show', @locale
+|
+= link_to 'Back', locales_path

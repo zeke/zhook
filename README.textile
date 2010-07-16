@@ -1,0 +1,31 @@
+h1. Zhook
+
+Zhook is a rails webservice that scrapes nonprofit metadata such as phone numbers, website URLs, and email addresses from sites like Google, Facebook, LinkedIn, Idealist, and others. Zhook (жук) is the Russian word for bug; it sounds kinda like zook and it's a crawler!
+
+h2. Setting up the Development Environment
+
+  sudo gem sources -a http://gems.github.com
+  sudo gem install mislav-will_paginate fastercsv haml mechanize
+	sudo gem install mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
+  rake bootstrap:setup
+  rake db:migrate
+
+h2. Setting up the Production Environment
+
+  sudo gem sources -a http://gems.github.com
+  sudo gem install mislav-will_paginate fastercsv haml mechanize
+	sudo gem install mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
+
+h2. Immediate To-Dos
+
+* Add indexes to IRS table
+* Figure out how to run the delayed_job script on the server.. http://github.com/collectiveidea/delayed_job/tree/master or http://github.com/blog/229-dj-god maybe?
+* Set up god or monit to keep tabs on the delayed_job script
+* Should exported 'Google' CSV contain organizations for which there is no google information as well?
+
+h2. Eventual To-Dos
+
+* If/When IRS database is updated, foreign keys should be switched from regular old incrementing ids to EINs.
+* Create a Search model that stores searches and displays links to recent ones under the search form
+* Configure XML respond_to for metadata output (currently only works for plain organizations with no metadata)
+* Add a 'version' field to factoids, so newer crawler implementations will know which sites to re-crawl

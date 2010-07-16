@@ -1,0 +1,23 @@
+%p
+  %b
+    Ein:
+  = h @google_factoid.ein
+%p
+  %b
+    Website:
+  = h @google_factoid.website
+%p
+  %b
+    Phone:
+  = h @google_factoid.phone
+%p
+  %b
+    Address:
+  = h @google_factoid.address
+%p
+  %b
+    Source url:
+  = h @google_factoid.source_url
+= link_to 'Edit', edit_google_factoid_path(@google_factoid)
+|
+= link_to 'Back', google_factoids_path

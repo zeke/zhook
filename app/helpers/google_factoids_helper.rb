@@ -1,0 +1,2 @@
+module GoogleFactoidsHelper
+end

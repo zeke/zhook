@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  primary_name: MyString
+  care_of_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  activity_codes: MyString
+  ntee_code: MyString
+  ein: MyString
+
+two:
+  primary_name: MyString
+  care_of_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  activity_codes: MyString
+  ntee_code: MyString
+  ein: MyString
+
+# == Schema Info
+# Schema version: 20090124015220
+#
+# Table name: organizations
+#
+#  id             :integer(4)      not null, primary key
+#  activity_codes :string(255)
+#  care_of_name   :string(255)
+#  city           :string(255)
+#  ein            :string(255)
+#  ntee_code      :string(255)
+#  primary_name   :string(255)
+#  state          :string(255)
+#  street         :string(255)
+#  zip            :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime

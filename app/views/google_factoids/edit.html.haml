@@ -1,0 +1,26 @@
+/ %h1
+/   Editing google_factoid
+/ - form_for(@google_factoid) do |f|
+/ = f.error_messages
+/   %p
+/     = f.label :ein
+/     %br/
+/     = f.text_field :ein
+/   %p
+/     = f.label :website
+/     %br/
+/     = f.text_field :website
+/   %p
+/     = f.label :phone
+/     %br/
+/     = f.text_field :phone
+/   %p
+/     = f.label :address
+/     %br/
+/     = f.text_field :address
+/   %p
+/     = f.label :source_url
+/     %br/
+/     = f.text_field :source_url
+/   %p
+/     = f.submit "Update"

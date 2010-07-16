@@ -1,0 +1,26 @@
+%html
+  %head
+    %title
+      zhook, a givezooks nonprofit metadata crawler
+
+    / Stylesheets
+    = stylesheet_link_tag "blueprint/screen", :media => "screen, projection"
+    = stylesheet_link_tag "blueprint/print", :media => "print"
+    == <!--[if IE]>
+    = stylesheet_link_tag "blueprint/ie", :media => "screen, projection"
+    == <![endif]-->
+    = stylesheet_link_tag "custom", :media => "screen, projection"
+    
+    / Javascripts
+    = javascript_include_tag :defaults
+    = javascript_include_tag "jquery.inputlabel"
+    = javascript_include_tag "application"
+
+  %body
+    = flash_messages
+    = yield
+    
+    %div#sidebar
+      = image_tag "base/logo.png", :id => "logo"
+      = yield :sidebar
+    

@@ -1,0 +1,28 @@
+<h1>Listing site_factoids</h1>
+
+<table>
+  <tr>
+    <th>Organization</th>
+    <th>Kind</th>
+    <th>Content</th>
+    <th>Source url</th>
+    <th>Fruitful</th>
+  </tr>
+
+<% for site_factoid in @site_factoids %>
+  <tr>
+    <td><%=h site_factoid.organization_id %></td>
+    <td><%=h site_factoid.kind %></td>
+    <td><%=h site_factoid.content %></td>
+    <td><%=h site_factoid.source_url %></td>
+    <td><%=h site_factoid.fruitful %></td>
+    <td><%= link_to 'Show', site_factoid %></td>
+    <td><%= link_to 'Edit', edit_site_factoid_path(site_factoid) %></td>
+    <td><%= link_to 'Destroy', site_factoid, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New site_factoid', new_site_factoid_path %>

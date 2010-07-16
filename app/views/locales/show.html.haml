@@ -1,0 +1,31 @@
+%p
+  %b
+    Zip:
+  = h @locale.zip
+%p
+  %b
+    Latitude:
+  = h @locale.latitude
+%p
+  %b
+    Longitude:
+  = h @locale.longitude
+%p
+  %b
+    City:
+  = h @locale.city
+%p
+  %b
+    State:
+  = h @locale.state
+%p
+  %b
+    County:
+  = h @locale.county
+%p
+  %b
+    Postal type:
+  = h @locale.postal_type
+= link_to 'Edit', edit_locale_path(@locale)
+|
+= link_to 'Back', locales_path

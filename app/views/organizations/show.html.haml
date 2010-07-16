@@ -1,0 +1,66 @@
+%h1= h @organization.name
+
+%table.organizations
+  %tr
+    %th Address
+    %th Care of Name
+    %th EIN
+    %th Activity
+    %th NTEE
+  
+  %tr
+    %td= link_to @organization.address, "http://maps.google.com/maps?q=#{@organization.address}"
+    %td= @organization.care_of_name.titlecase
+    %td= h @organization.ein
+    %td= h @organization.activity_codes
+    %td= h @organization.ntee_code
+
+%h2== Google Factoids (#{@organization.google_factoids.size})
+- if @organization.google_factoids.blank?
+  %p
+    No google searches have been performed for this organization yet. 
+    = link_to("Search now.", organization_path(@organization, :google => "1"))
+- else
+  %table.google_results
+    %tr
+      %th Website
+      %th Address
+      %th Phone
+      %th Search date
+
+    - @organization.google_factoids.each do |f|
+      %tr{:class => cycle("offset", "")}
+        %td= f.website.blank? ? "<em>(no results)</em>" : link_to(f.website, f.website) 
+        %td= f.address_safe
+        %td= phone_number f.phone_safe
+        %td= time_ago_in_words_or_date f.created_at
+        
+  = link_to("Do another Google search now.", organization_path(@organization, :google => "1"))
+
+
+%h2== Site Factoids (#{@organization.site_factoids.size})
+- if @organization.site_factoids.blank?
+  %p
+    No site searches have been performed for this organization yet. 
+    = link_to("Search now.", organization_path(@organization, :site => "1"))
+- else
+  %table.google_results
+    %tr
+      %th Type
+      %th Value
+      %th Source URL
+      %th Search date
+
+    - @organization.site_factoids.each do |f|
+      %tr{:class => cycle("offset", "")}
+        %td= f.kind.titlecase rescue ""
+        %td= phone_or_email f.content, f.kind rescue ""
+        %td= link_to(f.source_url.ellipsize, f.source_url) unless f.source_url.blank?
+        %td= time_ago_in_words_or_date f.created_at
+
+  = link_to("Do another site search now.", organization_path(@organization, :site => "1"))
+
+
+- content_for :sidebar do
+    
+  = render :partial => "organizations/search"

@@ -1,0 +1,45 @@
+%script{ :type => "text/javascript" }== $(document).ready(function() { prepareSearchFormLabels(); });
+
+%h2 Search
+%form#search{:onsubmit => "return submitToRealSearchForm(this);"}
+  %div
+    = label_tag :name_temp, "Name"
+    = text_field_tag :name_temp, params[:name], :class => "text"
+  %div
+    = label_tag :zip_temp, "Zip"
+    = text_field_tag :zip_temp, params[:zip], :class => "text"
+  %div  
+    = label_tag :city_temp, "City"
+    = text_field_tag :city_temp, params[:city], :class => "text"
+  %div  
+    = label_tag :county_field, "County"
+    = text_field_tag :county_temp, params[:county], :class => "text"
+  %div  
+    = label_tag :state_temp, "State"
+    = text_field_tag :state_temp, params[:state], :class => "text"
+
+  %h2 Metadata for Export
+
+  %div.checkbox
+    = radio_button_tag :metadata_temp, 'google', params[:metadata] == "google"
+    = label_tag :metadata_temp_google, "Single Address/Phone/Website"
+  %div.checkbox
+    = radio_button_tag :metadata_temp, 'emails', params[:metadata] == "emails"
+    = label_tag :metadata_temp_emails, "All Email Addresses"
+  %div.checkbox
+    = radio_button_tag :metadata_temp, 'phones', params[:metadata] == "phones"
+    = label_tag :metadata_temp_phones, "All Phone Numbers"
+  %div.checkbox
+    = radio_button_tag :metadata_temp, '', params[:metadata].blank?
+    = label_tag :metadata_temp_, "None"
+    
+  %div
+    = submit_tag "Search", :id => "submit"
+
+%form#real_search{:action => "/organizations"}
+  = hidden_field_tag :name
+  = hidden_field_tag :zip
+  = hidden_field_tag :city
+  = hidden_field_tag :county
+  = hidden_field_tag :state
+  = hidden_field_tag :metadata

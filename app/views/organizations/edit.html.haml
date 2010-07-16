@@ -1,0 +1,48 @@
+/ <h1>Editing organization</h1>
+/ 
+/ <% form_for(@organization) do |f| %>
+/   <%= f.error_messages %>
+/ 
+/   <p>
+/     <%= f.label :primary_name %><br />
+/     <%= f.text_field :primary_name %>
+/   </p>
+/   <p>
+/     <%= f.label :care_of_name %><br />
+/     <%= f.text_field :care_of_name %>
+/   </p>
+/   <p>
+/     <%= f.label :street %><br />
+/     <%= f.text_field :street %>
+/   </p>
+/   <p>
+/     <%= f.label :city %><br />
+/     <%= f.text_field :city %>
+/   </p>
+/   <p>
+/     <%= f.label :state %><br />
+/     <%= f.text_field :state %>
+/   </p>
+/   <p>
+/     <%= f.label :zip %><br />
+/     <%= f.text_field :zip %>
+/   </p>
+/   <p>
+/     <%= f.label :activity_codes %><br />
+/     <%= f.text_field :activity_codes %>
+/   </p>
+/   <p>
+/     <%= f.label :ntee_code %><br />
+/     <%= f.text_field :ntee_code %>
+/   </p>
+/   <p>
+/     <%= f.label :ein %><br />
+/     <%= f.text_field :ein %>
+/   </p>
+/   <p>
+/     <%= f.submit "Update" %>
+/   </p>
+/ <% end %>
+/ 
+/ <%= link_to 'Show', @organization %> |
+/ <%= link_to 'Back', organizations_path %>

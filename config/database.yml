@@ -1,0 +1,19 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: zhook_development
+  user: root
+  
+test:
+  adapter: mysql
+  encoding: utf8
+  database: zhook_test
+  user: root
+  
+production:
+  adapter: mysql
+  encoding: utf8
+  database: zhook_production
+  username: zhook
+  password: zhook
+

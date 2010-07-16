@@ -1,0 +1,36 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  zip: 1
+  latitude: 1.5
+  longitude: 1.5
+  city: MyString
+  state: MyString
+  county: MyString
+  postal_type: MyString
+
+two:
+  zip: 1
+  latitude: 1.5
+  longitude: 1.5
+  city: MyString
+  state: MyString
+  county: MyString
+  postal_type: MyString
+
+
+# == Schema Info
+# Schema version: 20090124015220
+#
+# Table name: locales
+#
+#  id          :integer(4)      not null, primary key
+#  city        :string(255)
+#  county      :string(255)
+#  latitude    :float
+#  longitude   :float
+#  postal_type :string(255)
+#  state       :string(255)
+#  zip         :integer(4)
+#  created_at  :datetime
+#  updated_at  :datetime

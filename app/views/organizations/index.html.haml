@@ -1,0 +1,44 @@
+- if @organizations.nil?
+  %h1 Results not ready..
+  %div.flash_message.notice
+    == Some of the organizations you searched for have not yet been crawled. Not to worry, though: 
+    == the zhook has been turned loose on them! When the auto-updating counter above gets down to zero, 
+    == refresh to view results.
+
+- elsif @organizations.empty?
+  %h1 No Results
+  %p.tip Fuzzy search is allowed on all fields: <em>'port'</em> will yield results from Portland and Shreveport.
+  %p.tip Fields are NOT case sensitive: <em>'alb'</em> and <em>'ALB'</em> will yield the same results.
+  
+- else
+  %h1== Results #{pagination_summary(@organizations)}
+
+%ul.downloads  
+  - unless @organizations.blank?
+    %li= link_to("Export to XML", path_for_format("xml"), :class => "xml")
+    %li= link_to("Export to CSV", path_for_format("csv"), :class => "csv")
+    
+  %li#job_count.linkless== <b>#{@job_count}</b> jobs queued.
+  =periodically_call_remote(:update => "job_count", :frequency => 3, :url => { :action => "count_jobs" })
+
+- unless @organizations.blank?
+  %table.organizations
+    %tr
+      %th Primary Name
+      %th Location
+      %th Website
+      %th Factoids
+  
+    - for organization in @organizations
+      %tr{:class => cycle("offset", "")}
+        %td= link_to(h(organization.primary_name.titlecase.ellipsize(:max => 60)), organization)
+        %td== #{organization.city.titlecase}, #{organization.state}
+        %td= website_link_or_disclaimer organization
+        %td= faded_if_zero organization.site_factoids.fruitful.size
+
+  = will_paginate @organizations
+
+
+- content_for :sidebar do
+    
+  = render :partial => "organizations/search"

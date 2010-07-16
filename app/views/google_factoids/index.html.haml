@@ -1,0 +1,35 @@
+%h1
+  Listing google_factoids
+%table
+  %tr
+    %th
+      Ein
+    %th
+      Website
+    %th
+      Phone
+    %th
+      Address
+    %th
+      Source url
+  - for google_factoid in @google_factoids
+  %tr
+    %td
+      = h google_factoid.ein
+    %td
+      = h google_factoid.website
+    %td
+      = h google_factoid.phone
+    %td
+      = h google_factoid.address
+    %td
+      = h google_factoid.source_url
+    %td
+      = link_to 'Show', google_factoid
+    %td
+      = link_to 'Edit', edit_google_factoid_path(google_factoid)
+    %td
+      = link_to 'Destroy', google_factoid, :confirm =&gt; 'Are you sure?', :method =&gt; :delete
+  - end
+%br/
+= link_to 'New google_factoid', new_google_factoid_path

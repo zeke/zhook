@@ -1,0 +1,23 @@
+%p
+  %b
+    Organization:
+  = h @site_factoid.organization_id
+%p
+  %b
+    Kind:
+  = h @site_factoid.kind
+%p
+  %b
+    Content:
+  = h @site_factoid.content
+%p
+  %b
+    Source url:
+  = h @site_factoid.source_url
+%p
+  %b
+    Fruitful:
+  = h @site_factoid.fruitful
+= link_to 'Edit', edit_site_factoid_path(@site_factoid)
+|
+= link_to 'Back', site_factoids_path

@@ -1,0 +1,43 @@
+%h1
+  Listing locales
+%table
+  %tr
+    %th
+      Zip
+    %th
+      Latitude
+    %th
+      Longitude
+    %th
+      City
+    %th
+      State
+    %th
+      County
+    %th
+      Postal type
+  - for locale in @locales
+  %tr
+    %td
+      = h locale.zip
+    %td
+      = h locale.latitude
+    %td
+      = h locale.longitude
+    %td
+      = h locale.city
+    %td
+      = h locale.state
+    %td
+      = h locale.county
+    %td
+      = h locale.postal_type
+    %td
+      = link_to 'Show', locale
+    %td
+      = link_to 'Edit', edit_locale_path(locale)
+    %td
+      = link_to 'Destroy', locale, :confirm =&gt; 'Are you sure?', :method =&gt; :delete
+  - end
+%br/
+= link_to 'New locale', new_locale_path
